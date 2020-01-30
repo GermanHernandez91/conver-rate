@@ -1,4 +1,5 @@
 import 'package:conver_rate/styles/navigation.dart';
+import 'package:conver_rate/styles/texts.dart';
 import 'package:flutter/material.dart';
 
 abstract class Themes {
@@ -7,6 +8,9 @@ abstract class Themes {
     primaryColor: Colors.white,
     accentColor: Colors.indigoAccent,
     appBarTheme: Navigation.appLightBarTheme,
+    textTheme: TextTheme(
+      headline: Texts.headline,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -14,5 +18,8 @@ abstract class Themes {
     primaryColorDark: Colors.black87,
     accentColor: Colors.indigoAccent,
     appBarTheme: Navigation.appDarkBarTheme,
+    textTheme: TextTheme(
+      headline: Texts.headlineDark,
+    ),
   );
 }
