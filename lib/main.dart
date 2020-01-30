@@ -1,4 +1,5 @@
 import 'package:conver_rate/providers/device_provider.dart';
+import 'package:conver_rate/providers/location_provider.dart';
 import 'package:conver_rate/screens/splash_screen.dart';
 import 'package:conver_rate/screens/tab_screen.dart';
 import 'package:conver_rate/styles/themes.dart';
@@ -9,6 +10,7 @@ void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => DeviceProvider()),
+          ChangeNotifierProvider(create: (_) => LocationProvider()),
         ],
         child: MyApp(),
       ),
