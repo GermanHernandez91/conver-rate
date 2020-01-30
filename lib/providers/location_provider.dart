@@ -14,17 +14,25 @@ class LocationProvider with ChangeNotifier {
     preferences.setString(Keys.location, location.toJson().toString());
     _currentLocation = location;
 
-    print(preferences.getString(Keys.location));
-    print(_currentLocation);
-
     notifyListeners();
   }
 
   Future<void> saveLocation(String alphaCode) async {
+    Location location;
+
     try {
-      final location = await DatabaseService.getCurrentLocation(alphaCode);
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      final currentLocation = preferences.getString(Keys.location);
+
+      if (currentLocation != null) {
+        location = await DatabaseService.getCurrentLocation(alphaCode);
+      } else {
+        location = locationFromJson(currentLocation);
+      }
+
       setCurrentLocation(location);
     } catch (err) {
+      print(err);
       throw Exception(err.toString());
     }
   }

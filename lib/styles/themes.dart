@@ -8,6 +8,13 @@ abstract class Themes {
     primaryColor: Colors.white,
     accentColor: Colors.indigoAccent,
     appBarTheme: Navigation.appLightBarTheme,
+    inputDecorationTheme: InputDecorationTheme(
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.indigoAccent,
+        ),
+      ),
+    ),
     textTheme: TextTheme(
       headline: Texts.headline,
     ),
